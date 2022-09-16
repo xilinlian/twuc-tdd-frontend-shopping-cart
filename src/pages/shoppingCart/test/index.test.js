@@ -9,4 +9,14 @@ describe('Shopping Cart', () => {
 
     expect(getByText('Shopping Cart')).toBeInTheDocument();
   });
+
+  test('should show empty shopping cart given product list is empty', () => {
+    const {container, getByText} = render(<ShoppingCart/>);
+    const products = container.getElementsByClassName('product');
+
+    expect(products.length).toBe(0);
+    expect(getByText('商品名称')).toBeInTheDocument();
+    expect(getByText('数量')).toBeInTheDocument();
+    expect(getByText('单价')).toBeInTheDocument();
+  });
 });
