@@ -1,12 +1,12 @@
-import axios from "axios";
-import { getData } from "../http";
-import PRODUCTS from "../../mockData/products.json";
+import axios from 'axios';
+import { getData } from '../http';
+import PRODUCTS from '../../mockData/products.json';
 
-jest.mock("axios");
+jest.mock('axios');
 
-describe("http", function () {
-  describe("getData", function () {
-    it("should send request and return data", async function () {
+describe('http', function () {
+  describe('getData', function () {
+    it('should send request and return data', async function () {
       let mockData = {
         products: PRODUCTS,
       };
@@ -17,7 +17,7 @@ describe("http", function () {
 
       const actual = await getData();
 
-      expect(axios.get).toBeCalledWith("http://127.0.0.1:8000/");
+      expect(axios.get).toBeCalledWith('http://127.0.0.1:8000/');
 
       expect(actual).toEqual(mockData);
     });
