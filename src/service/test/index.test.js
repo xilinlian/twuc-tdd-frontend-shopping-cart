@@ -12,10 +12,10 @@ describe('service', function () {
         {'id': 3, 'name': 'SONY WH-1000XM4 无线智能降噪耳机', 'price': 2099.00, 'count': 1},
         {'id': 4, 'name': 'iPhone 13 256GB', 'price': 6799.00, 'count': 1}
       ];
-      getData.mockResolvedValue(mockProducts);
-      const products = await getProducts();
-        
-      expect(products).toEqual(mockProducts);
+      getData.mockResolvedValue({products: mockProducts});
+      const result = await getProducts();
+
+      expect(result).toEqual(mockProducts);
     });
   });
 });
