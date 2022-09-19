@@ -4,6 +4,7 @@ import PRODUCTS from '../../mockData/products.json';
 
 jest.mock('axios');
 
+const PRODUCTS_URL = 'http://127.0.0.1:8000/';
 describe('http', function () {
   describe('getData', function () {
     it('should send request and return data', async function () {
@@ -17,7 +18,7 @@ describe('http', function () {
 
       const actual = await getData();
 
-      expect(axios.get).toBeCalledWith('http://127.0.0.1:8000/');
+      expect(axios.get).toBeCalledWith(PRODUCTS_URL);
 
       expect(actual).toEqual(mockData);
     });
